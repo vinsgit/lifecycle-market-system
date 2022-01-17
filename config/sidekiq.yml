@@ -1,0 +1,15 @@
+#Max. number of processes
+concurrency: 5
+
+# processes path
+pidfile: tmp/pids/sidekiq.pid
+# log path
+logfile: log/sidekiq.log
+
+
+queues:
+  - default
+  - schedule
+
+development:
+  concurrency: 5
