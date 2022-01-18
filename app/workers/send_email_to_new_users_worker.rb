@@ -15,8 +15,8 @@ class SendEmailToNewUsersWorker
   end
 
   def schedual_next_email_worker!(campaign_id)
-    campagin = Campaign.find(campaign_id)
-    job_id = SendEmailToNewUsersWorker.perform_at(campagin.send_time, campaign_id)
-    campagin.update(job_id: job_id)
+    campaign = Campaign.find(campaign_id)
+    job_id = SendEmailToNewUsersWorker.perform_at(campaign.send_time, campaign_id)
+    campaign.update_column(:job_id, job_id)
   end
 end
